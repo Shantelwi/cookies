@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cooki Orders</title>
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+            integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I"
+            crossorigin="anonymous">
+    </head>
+    <body>
+        <h1 class="d-flex justify-content-center my-4">Cookie Orders</h1>
+        <p>All Orders:</p>
+        <div class="table-responsive-md text-center">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Customer Name</th>
+                        <th scope="col">Cookie Type</th>
+                        <th scope="col">Number of Boxes</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cookies in orders %}
+                    <tr>
+                        <td>{{cookies.name}}</td>
+                        <td>{{cookies.cookie_type}}</td>
+                        <td>{{cookies.num_of_boxes}}</td>
+                        <td>
+                            <a href="/cookies/edit/{{ cookies.id }}">Edit</a> 
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <a href="/cookies/new" class="btn btn-primary">+ New Order</a>
+    </body>
+</html>
